@@ -1,0 +1,32 @@
+{
+    "name": "thewildfields/tavriia",
+    "description": "A reusable PHP framework providing a clean, typed, PSR-compliant OOP abstraction layer over WordPress core functions.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "brain/monkey": "^2",
+        "mockery/mockery": "^1",
+        "phpunit/phpunit": "^11"
+    },
+    "autoload": {
+        "psr-4": {
+            "TheWildFields\\Tavriia\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TheWildFields\\Tavriia\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
