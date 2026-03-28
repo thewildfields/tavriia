@@ -1,0 +1,19 @@
+{
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "input=$(cat); echo \"$input\" | jq -r '.tool_input.command // \"\"' | grep -qiE 'git (checkout -b|branch( -[a-zA-Z]*)?) .*claude' && echo '{\"decision\": \"block\", \"reason\": \"Branch names must not contain \\\"claude\\\"\"}' || true"
+          }
+        ]
+      }
+    ]
+  }
+}
