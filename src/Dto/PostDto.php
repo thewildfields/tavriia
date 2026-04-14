@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
-namespace TheWildFields\Tavriia\DTO;
+namespace TheWildFields\Tavriia\Dto;
+
+use WP_Post;
 
 /**
  * Immutable data transfer object representing a WordPress post.
  */
-final readonly class PostDTO
+final readonly class PostDto
 {
     public function __construct(
         public string $title,
@@ -25,16 +27,14 @@ final readonly class PostDTO
         public string $commentStatus = 'open',
         public ?string $dateGmt = null,
         public ?int $id = null,
-        /** @var array<string, mixed> */
         public array $meta = [],
-        /** @var int[] */
         public array $termIds = [],
     ) {}
 
     /**
-     * Create a PostDTO from a native \WP_Post object.
+     * Create a PostDto from a native WP_Post object.
      */
-    public static function fromWpPost(\WP_Post $post): self
+    public static function fromWpPost(WP_Post $post): self
     {
         return new self(
             title: $post->post_title,

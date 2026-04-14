@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace TheWildFields\Tavriia\Http;
 
 use TheWildFields\Tavriia\Contracts\ApiClientInterface;
-use TheWildFields\Tavriia\DTO\ApiRequestDTO;
-use TheWildFields\Tavriia\DTO\ApiResponseDTO;
+use TheWildFields\Tavriia\Dto\ApiRequestDto;
+use TheWildFields\Tavriia\Dto\ApiResponseDto;
 use TheWildFields\Tavriia\Exceptions\ApiRequestException;
 use TheWildFields\Tavriia\Exceptions\ApiResponseException;
 
@@ -29,7 +29,7 @@ final class HttpClient implements ApiClientInterface
      * @throws ApiRequestException  On transport failure.
      * @throws ApiResponseException On non-2xx HTTP status.
      */
-    public function get(string $url, array $args = []): ApiResponseDTO
+    public function get(string $url, array $args = []): ApiResponseDto
     {
         $rawResponse = wp_remote_get($url, $args);
 
@@ -42,7 +42,7 @@ final class HttpClient implements ApiClientInterface
      * @throws ApiRequestException  On transport failure.
      * @throws ApiResponseException On non-2xx HTTP status.
      */
-    public function post(string $url, array $args = []): ApiResponseDTO
+    public function post(string $url, array $args = []): ApiResponseDto
     {
         $rawResponse = wp_remote_post($url, $args);
 
@@ -55,7 +55,7 @@ final class HttpClient implements ApiClientInterface
      * @throws ApiRequestException  On transport failure.
      * @throws ApiResponseException On non-2xx HTTP status.
      */
-    public function request(ApiRequestDTO $request): ApiResponseDTO
+    public function request(ApiRequestDto $request): ApiResponseDto
     {
         $rawResponse = wp_remote_request($request->url, $request->toWpArgs());
 

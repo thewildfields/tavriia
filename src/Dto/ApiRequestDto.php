@@ -10,22 +10,20 @@ namespace TheWildFields\Tavriia\DTO;
 final readonly class ApiRequestDTO
 {
     /**
-     * @param string               $url     The full URL to request.
-     * @param string               $method  HTTP method (GET, POST, PUT, PATCH, DELETE, etc.).
-     * @param array<string, string> $headers Map of request headers.
-     * @param array<string, mixed>|string $body    Request body — associative array or raw string.
-     * @param int                  $timeout Request timeout in seconds.
-     * @param bool                 $sslVerify Whether to verify SSL certificates.
+     * @param string                        $url        The full URL to request.
+     * @param string                        $method     HTTP method (GET, POST, PUT, PATCH, DELETE, etc.).
+     * @param array<string, string>         $headers    Map of request headers.
+     * @param array<string, mixed>|mixed    $body       Request body — associative array or raw string.
+     * @param int                           $timeout    Request timeout in seconds.
+     * @param bool                          $sslVerify  Whether to verify SSL certificates.
      */
     public function __construct(
         public string $url,
         public string $method = 'GET',
-        /** @var array<string, string> */
         public array $headers = [],
         public array|string $body = [],
         public int $timeout = 15,
         public bool $sslVerify = true,
-        /** @var array<string, mixed> */
         public array $extraArgs = [],
     ) {}
 

@@ -37,13 +37,6 @@
     "config": {
         "sort-packages": true
     },
-    "minimum-stability": "stable",
-    "prefer-stable": true,
-    "repositories": [{
-        "packagist.org": false
-    },{
-        "name": "private-packagist",
-        "type": "composer",
-        "url": "https://repo.packagist.com/thewildfields/"
-    }]
+    "minimum-stability": "dev",
+    "prefer-stable": false
 }

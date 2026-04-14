@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace TheWildFields\Tavriia\Exceptions;
 
+use RuntimeException;
+
+use WP_Error;
+
 /**
  * Thrown when an outbound HTTP request fails at the transport level (WP_Error).
  */
-final class ApiRequestException extends \RuntimeException
+final class ApiRequestException extends RuntimeException
 {
-    public static function fromWpError(\WP_Error $error): self
+    public static function fromWpError(WP_Error $error): self
     {
         return new self(sprintf(
             'HTTP request failed: [%s] %s',

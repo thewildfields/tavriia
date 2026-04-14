@@ -2,29 +2,30 @@
 
 declare(strict_types=1);
 
-namespace TheWildFields\Tavriia\DTO;
+namespace TheWildFields\Tavriia\Dto;
+
+use JsonException;
 
 /**
  * Immutable data transfer object representing an HTTP API response.
  */
-final readonly class ApiResponseDTO
+final readonly class ApiResponseDto
 {
     /**
-     * @param int                  $statusCode  HTTP status code.
-     * @param string               $body        Raw response body.
+     * @param int                   $statusCode  HTTP status code.
+     * @param string                $body        Raw response body.
      * @param array<string, string> $headers     Response headers.
      */
     public function __construct(
         public int $statusCode,
         public string $body,
-        /** @var array<string, string> */
         public array $headers = [],
     ) {}
 
     /**
      * Decode the response body as JSON and return the result.
      *
-     * @throws \JsonException When the body is not valid JSON.
+     * @throws JsonException When the body is not valid JSON.
      */
     public function json(): mixed
     {

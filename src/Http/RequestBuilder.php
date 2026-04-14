@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace TheWildFields\Tavriia\Http;
 
-use TheWildFields\Tavriia\DTO\ApiRequestDTO;
+use TheWildFields\Tavriia\Dto\ApiRequestDto;
+
+use JsonException;
 
 /**
- * Fluent builder for constructing ApiRequestDTO instances.
+ * Fluent builder for constructing ApiRequestDto instances.
  *
  * Usage:
  *   $request = (new RequestBuilder('https://api.example.com/endpoint'))
@@ -81,7 +83,7 @@ final class RequestBuilder
     /**
      * Set the request body as JSON, automatically setting Content-Type.
      *
-     * @throws \JsonException When the body cannot be encoded.
+     * @throws JsonException When the body cannot be encoded.
      */
     public function jsonBody(array $data): self
     {
@@ -128,11 +130,11 @@ final class RequestBuilder
     }
 
     /**
-     * Build and return the immutable ApiRequestDTO.
+     * Build and return the immutable ApiRequestDto.
      */
-    public function build(): ApiRequestDTO
+    public function build(): ApiRequestDto
     {
-        return new ApiRequestDTO(
+        return new ApiRequestDto(
             url: $this->url,
             method: $this->method,
             headers: $this->headers,
