@@ -71,6 +71,21 @@ Complete method-level documentation for every class in Tavriia.
 
 ---
 
+## API Provider Layer
+
+| Class/Interface | Description |
+|-----------------|-------------|
+| [`AbstractApiProvider`](abstract-api-provider.md) | Base class for API providers |
+| [`ApiProviderConfigDto`](api-provider-config-dto.md) | Provider configuration DTO |
+| [`AuthStrategyInterface`](auth-strategies.md#authstrategyinterface) | Contract for auth strategies |
+| [`BearerTokenAuth`](auth-strategies.md#bearertokenauth) | Bearer token authentication |
+| [`ApiKeyAuth`](auth-strategies.md#apikeyauth) | Header-based API key auth |
+| [`BasicAuth`](auth-strategies.md#basicauth) | HTTP Basic authentication |
+| [`QueryParamAuth`](auth-strategies.md#queryparamauth) | Query parameter authentication |
+| [`NoAuth`](auth-strategies.md#noauth) | No authentication (default) |
+
+---
+
 ## Admin Layer
 
 | Class | Description |
