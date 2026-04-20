@@ -124,6 +124,7 @@ $data = $response->json();
 | **Taxonomy** | `TermFactory`, `TermRepository`, `TermMetaManager` | `wp_insert_term`, `get_terms`, `wp_get_object_terms` |
 | **Queries** | `QueryBuilder`, `QueryResult` | `WP_Query`, `get_posts` |
 | **HTTP** | `HttpClient`, `RequestBuilder`, `ResponseProcessor` | `wp_remote_get`, `wp_remote_post`, `wp_remote_request` |
+| **REST** | `RestServer`, `RestRouteBuilder`, `RestResponse`, `AbstractRestController` | `register_rest_route`, `WP_REST_Response`, `WP_Error` |
 | **Admin** | `AdminMenuPage`, `AdminNotice` | `add_menu_page`, `admin_notices` |
 | **Modules** | `AbstractModule` | WordPress hooks lifecycle |
 
@@ -152,6 +153,7 @@ $data = $response->json();
 - [Taxonomy & Terms](docs/taxonomy.md)
 - [Query Builder](docs/query-builder.md)
 - [HTTP Client](docs/http-client.md)
+- [REST API](docs/rest.md)
 - [Admin Helpers](docs/admin.md)
 - [Exception Handling](docs/exceptions.md)
 - [API Reference](docs/api-reference/index.md)

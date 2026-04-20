@@ -199,6 +199,58 @@ Returns the response that caused the exception, allowing access to the status co
 
 ---
 
+## RestRouteRegistrationException
+
+```
+TheWildFields\Tavriia\Exceptions\RestRouteRegistrationException
+```
+
+```php
+final class RestRouteRegistrationException extends \RuntimeException
+```
+
+Thrown when registering a REST route with WordPress fails. `register_rest_route()` returns `false` for invalid namespaces or route patterns; the framework converts that silent failure into this typed exception so plugin code never has to inspect boolean return values.
+
+### Static Factories
+
+#### `forRoute(string $namespace, string $route): self`
+
+```php
+public static function forRoute(string $namespace, string $route): self
+```
+
+```php
+throw RestRouteRegistrationException::forRoute('my-plugin/v1', '/events');
+// Message: "Failed to register REST route \"/events\" under namespace \"my-plugin/v1\"."
+```
+
+#### `forMissingNamespace(): self`
+
+```php
+public static function forMissingNamespace(): self
+```
+
+Thrown when a `RestRouteDto` or `RestRouteBuilder` is built with an empty namespace.
+
+#### `forMissingRoute(): self`
+
+```php
+public static function forMissingRoute(): self
+```
+
+Thrown when a `RestRouteDto` or `RestRouteBuilder` is built with an empty route pattern.
+
+### When it is thrown
+
+| Method | Condition |
+|--------|-----------|
+| `RestRouteBuilder::build()` | Namespace, route, callback, or permission callback is missing |
+| `RestServer::register()` | Namespace or route is empty |
+| `RestServer::register()` | `register_rest_route()` returns `false` |
+| `RestServer::registerMany()` | Any underlying `register()` call fails |
+
+---
+
 ## Exception Handling Pattern
 
 ```php

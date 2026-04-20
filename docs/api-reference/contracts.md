@@ -142,6 +142,30 @@ All builder methods return `static` (the implementing class), enabling fluent ch
 
 ---
 
+## RestServerInterface
+
+```
+TheWildFields\Tavriia\Contracts\RestServerInterface
+```
+
+Contract for classes that register REST API routes with WordPress.
+
+```php
+interface RestServerInterface
+{
+    public function register(RestRouteDto $route): void;
+    public function registerMany(iterable $routes): void;
+}
+```
+
+Implemented by: `RestServer`
+
+**Throws:** `RestRouteRegistrationException` when a route cannot be registered (empty namespace/route, or WordPress reports failure).
+
+Type-hint against this interface in `AbstractRestController` subclasses to keep controllers decoupled from the concrete implementation.
+
+---
+
 ## See Also
 
 - [`AbstractModule`](abstract-module.md)
@@ -149,3 +173,4 @@ All builder methods return `static` (the implementing class), enabling fluent ch
 - [`PostRepository`](post-repository.md)
 - [`TermRepository`](term-repository.md)
 - [`QueryBuilder`](query-builder.md)
+- [`RestServer`](rest-server.md)

@@ -49,6 +49,7 @@ src/
     PostRepositoryInterface.php
     TaxonomyRepositoryInterface.php
     QueryBuilderInterface.php
+    RestServerInterface.php
   Http/
     HttpClient.php          // wraps wp_remote_get / wp_remote_post / wp_remote_request
     RequestBuilder.php      // fluent builder producing ApiRequestDTO
@@ -64,6 +65,11 @@ src/
   Query/
     QueryBuilder.php        // fluent builder → WP_Query args, returns QueryResult
     QueryResult.php         // typed wrapper around WP_Query results
+  Rest/
+    RestServer.php              // wraps register_rest_route
+    RestRouteBuilder.php        // fluent builder producing RestRouteDto
+    RestResponse.php            // typed REST response → WP_REST_Response / WP_Error
+    AbstractRestController.php  // base class for REST controllers
   Admin/
     AdminMenuPage.php       // wraps add_menu_page / add_submenu_page
     AdminNotice.php         // wraps admin_notices hook
@@ -73,11 +79,13 @@ src/
     ApiRequestDTO.php
     ApiResponseDTO.php
     QueryArgsDTO.php
+    RestRouteDto.php
   Exceptions/
     PostNotFoundException.php
     TermNotFoundException.php
     ApiRequestException.php
     ApiResponseException.php
+    RestRouteRegistrationException.php
 ```
 
 ---
@@ -191,5 +199,6 @@ All exceptions live in `TheWildFields\Tavriia\Exceptions\` and extend `\RuntimeE
 - [x] `Taxonomy` (TermFactory, TermRepository, TermMetaManager)
 - [x] `Query` (QueryBuilder, QueryResult)
 - [x] `Admin` (AdminMenuPage, AdminNotice)
-- [x] `DTO` (PostDTO, TaxonomyDTO, ApiRequestDTO, ApiResponseDTO, QueryArgsDTO)
+- [x] `Rest` (RestServer, RestRouteBuilder, RestResponse, AbstractRestController)
+- [x] `DTO` (PostDTO, TaxonomyDTO, ApiRequestDTO, ApiResponseDTO, QueryArgsDTO, RestRouteDto)
 - [x] `Exceptions`

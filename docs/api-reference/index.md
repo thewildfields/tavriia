@@ -86,6 +86,20 @@ Complete method-level documentation for every class in Tavriia.
 
 ---
 
+## REST API Layer
+
+| Class/Interface | Description |
+|-----------------|-------------|
+| [`RestServer`](rest-server.md) | Register REST routes with WordPress |
+| [`RestRouteBuilder`](rest-route-builder.md) | Fluent REST route builder |
+| [`RestRouteDto`](rest-route-dto.md) | REST route data transfer object |
+| [`RestResponse`](rest-response.md) | Typed REST response object |
+| [`AbstractRestController`](abstract-rest-controller.md) | Base class for REST controllers |
+| [`RestServerInterface`](contracts.md#restserverinterface) | Contract for REST servers |
+| [`RestRouteRegistrationException`](exceptions.md#restrouteregistrationexception) | Thrown when route registration fails |
+
+---
+
 ## Admin Layer
 
 | Class | Description |
