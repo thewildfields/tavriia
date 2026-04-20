@@ -62,7 +62,7 @@ final class QueryBuilder implements QueryBuilderInterface
     /**
      * Set the post status filter.
      */
-    public function status(string $status): static
+    public function postStatus(string $status): static
     {
         $clone             = clone $this;
         $clone->postStatus = $status;
